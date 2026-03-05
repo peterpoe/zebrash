@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/ingridhq/zebrash/internal/printers"
+	"github.com/peterpoe/zebrash/internal/printers"
 )
 
 // NewChangeFontAliasParser parses the ^CW command which assigns a font file to a font alias.

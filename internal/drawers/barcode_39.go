@@ -5,9 +5,9 @@ import (
 	"image"
 
 	"github.com/ingridhq/gg"
-	"github.com/ingridhq/zebrash/drawers"
-	"github.com/ingridhq/zebrash/internal/barcodes/code39"
-	"github.com/ingridhq/zebrash/internal/elements"
+	"github.com/peterpoe/zebrash/drawers"
+	"github.com/peterpoe/zebrash/internal/barcodes/code39"
+	"github.com/peterpoe/zebrash/internal/elements"
 )
 
 func NewBarcode39Drawer() *ElementDrawer {
