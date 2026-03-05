@@ -6,6 +6,7 @@ import (
 
 type FontInfo struct {
 	Name        string
+	FileName    string
 	Width       float64
 	Height      float64
 	Orientation FieldOrientation

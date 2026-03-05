@@ -30,6 +30,11 @@ func NewChangeFontParser() *CommandParser {
 				font.Name = printer.DefaultFont.Name
 			}
 
+			// Resolve font filename from alias map (set by ^CW)
+			if fileName, ok := printer.FontAliases[font.Name]; ok {
+				font.FileName = fileName
+			}
+
 			if len(parts[0]) > 1 {
 				font.Orientation = toFieldOrientation(parts[0][1])
 			}

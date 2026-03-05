@@ -20,7 +20,7 @@ var (
 
 func NewTextFieldDrawer() *ElementDrawer {
 	return &ElementDrawer{
-		Draw: func(gCtx *gg.Context, element any, _ drawers.DrawerOptions, state *DrawerState) error {
+		Draw: func(gCtx *gg.Context, element any, options drawers.DrawerOptions, state *DrawerState) error {
 			text, ok := element.(*elements.TextField)
 			if !ok {
 				return nil
@@ -29,8 +29,29 @@ func NewTextFieldDrawer() *ElementDrawer {
 			text = adjustTextField(text)
 
 			fontSize := text.Font.GetSize()
+			if options.FontScale > 0 {
+				fontSize *= options.FontScale
+			}
 			scaleX := text.Font.GetScaleX()
-			face := truetype.NewFace(getTffFont(text.Font), &truetype.Options{Size: fontSize})
+			selectedFont := getTffFont(text.Font)
+			if len(options.CustomFonts) > 0 {
+				// Try to match by the font filename set via ^CW
+				if text.Font.FileName != "" {
+					if data, ok := options.CustomFonts[text.Font.FileName]; ok {
+						if f, err := truetype.Parse(data); err == nil {
+							selectedFont = f
+						}
+					}
+				} else if len(options.CustomFonts) == 1 {
+					// Fall back to the single provided font when no alias matched
+					for _, data := range options.CustomFonts {
+						if f, err := truetype.Parse(data); err == nil {
+							selectedFont = f
+						}
+					}
+				}
+			}
+			face := truetype.NewFace(selectedFont, &truetype.Options{Size: fontSize})
 			gCtx.SetFontFace(face)
 
 			setLineColor(gCtx, elements.LineColorBlack)

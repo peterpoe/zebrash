@@ -28,6 +28,7 @@ func NewParser() *Parser {
 			parsers.NewGraphicSymbolParser(),
 			parsers.NewChangeDefaultFontParser(),
 			parsers.NewChangeFontParser(),
+			parsers.NewChangeFontAliasParser(),
 			parsers.NewChangeCharsetParser(),
 			parsers.NewFieldOriginParser(),
 			parsers.NewFieldTypesetParser(),

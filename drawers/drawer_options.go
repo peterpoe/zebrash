@@ -6,6 +6,10 @@ type DrawerOptions struct {
 	Dpmm          int
 	// Render labels with inverted orientation upside-down
 	EnableInvertedLabels bool
+	// Custom fonts keyed by filename
+	CustomFonts map[string][]byte
+	// Scale factor applied to all font sizes (default 1.0 = no scaling)
+	FontScale float64
 }
 
 func (d DrawerOptions) WithDefaults() DrawerOptions {

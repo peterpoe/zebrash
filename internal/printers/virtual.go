@@ -26,12 +26,15 @@ type VirtualPrinter struct {
 	CurrentCharset           int
 	PrintWidth               int
 	LabelInverted            bool
+	// Maps font alias char (e.g. "1") to font filename (e.g. "FONT.TTF")
+	FontAliases map[string]string
 }
 
 func NewVirtualPrinter() *VirtualPrinter {
 	return &VirtualPrinter{
 		StoredGraphics: make(map[string]elements.StoredGraphics),
 		StoredFormats:  make(map[string]*elements.StoredFormat),
+		FontAliases:    make(map[string]string),
 		DefaultFont: elements.FontInfo{
 			Name: "A",
 		},
