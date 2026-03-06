@@ -45,7 +45,8 @@ func NewGraphicFieldDrawer() *ElementDrawer {
 			}
 
 			imgScaled := images.NewScaled(img, field.MagnificationX, field.MagnificationY)
-			gCtx.DrawImage(imgScaled, field.Position.X, field.Position.Y)
+			pos := adjustImageTypeSetPosition(imgScaled, field.Position, elements.FieldOrientationNormal)
+			gCtx.DrawImage(imgScaled, pos.X, pos.Y)
 
 			return nil
 		},
