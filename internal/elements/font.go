@@ -89,10 +89,10 @@ func (font FontInfo) WithAdjustedSizes() FontInfo {
 }
 
 func (font FontInfo) getWidthToHeightRatio() float64 {
-	if font.Name == "0" || font.Name == "GS" {
-		return 1.0
-	}
+	// if font.Name == "0" || font.Name == "GS" {
+	return 1.0
+	// }
 
 	// TODO: figure out why we need this at all, might be something to do with TTF fonts we use
-	return 2.0
+	// return 2.0
 }
