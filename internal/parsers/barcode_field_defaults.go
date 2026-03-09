@@ -22,7 +22,10 @@ func NewBarcodeFieldDefaults() *CommandParser {
 
 			if len(parts) > 1 {
 				if v, err := strconv.ParseFloat(strings.Trim(parts[1], " "), 32); err == nil {
-					printer.DefaultBarcodeDimensions.WidthRatio = max(2, min(v, 3))
+					if v >= 2.0 && v <= 3.0 {
+						printer.DefaultBarcodeDimensions.WidthRatio = v
+					}
+					// else: out-of-range value, keep the current default (3.0)
 				}
 			}
 

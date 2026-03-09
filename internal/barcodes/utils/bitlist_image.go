@@ -9,7 +9,9 @@ import (
 )
 
 func (resBits *BitList) ToImageWithBarsRatio(width, height int, widthRatio float64) image.Image {
-	widthRatio = max(min(3, widthRatio), 2)
+	if widthRatio < 2.0 || widthRatio > 3.0 {
+		widthRatio = 3.0
+	}
 	wideBarWidth := int(math.Round(widthRatio * float64(width)))
 
 	barsList := resBits.ToWideNarrowList(wideBarWidth, width)
