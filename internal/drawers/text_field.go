@@ -55,7 +55,7 @@ func NewTextFieldDrawer() *ElementDrawer {
 
 			if text.Block != nil {
 				maxWidth := float64(text.Block.MaxWidth) / scaleX
-				drawStringWrapped(gCtx, text.Text, x, y-h, ax, ay, maxWidth, 1+float64(text.Block.LineSpacing)/h, text.Block.Alignment)
+				drawStringWrapped(gCtx, text.Text, x, y-h, ax, ay, maxWidth, 1+float64(text.Block.LineSpacing)/h, text.Block.Alignment, text.Block.MaxLines)
 			} else {
 				gCtx.DrawStringAnchored(text.Text, x, y, ax, ay)
 			}
@@ -154,10 +154,16 @@ func mustLoadFont(fontData []byte) *truetype.Font {
 	return font
 }
 
-// Similar to gCtx.DrawStringWrapped but supports justified alignment
-func drawStringWrapped(gCtx *gg.Context, s string, x, y, ax, ay, width, lineSpacing float64, align elements.TextAlignment) {
+// Similar to gCtx.DrawStringWrapped but supports justified alignment and MaxLines enforcement
+func drawStringWrapped(gCtx *gg.Context, s string, x, y, ax, ay, width, lineSpacing float64, align elements.TextAlignment, maxLines int) {
 	fontHeight := gCtx.FontHeight()
 	lines := gCtx.WordWrap(s, width)
+
+	// Enforce MaxLines: overflow text overwrites the last line
+	if maxLines > 0 && len(lines) > maxLines {
+		overflow := strings.Join(lines[maxLines-1:], " ")
+		lines = append(lines[:maxLines-1], overflow)
+	}
 
 	h := float64(len(lines)) * fontHeight * lineSpacing
 	h -= (lineSpacing - 1) * fontHeight
