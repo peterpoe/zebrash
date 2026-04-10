@@ -3,8 +3,8 @@ package parsers
 import (
 	"strconv"
 
-	"github.com/ingridhq/zebrash/internal/elements"
-	"github.com/ingridhq/zebrash/internal/printers"
+	"github.com/peterpoe/zebrash/internal/elements"
+	"github.com/peterpoe/zebrash/internal/printers"
 )
 
 // ^BQ orientation, model, magnification, errorCorrection, mask

@@ -4,9 +4,9 @@ import (
 	"image"
 
 	"github.com/ingridhq/gg"
-	"github.com/ingridhq/zebrash/drawers"
-	"github.com/ingridhq/zebrash/internal/elements"
-	"github.com/ingridhq/zebrash/internal/images"
+	"github.com/peterpoe/zebrash/drawers"
+	"github.com/peterpoe/zebrash/internal/elements"
+	"github.com/peterpoe/zebrash/internal/images"
 )
 
 func NewGraphicFieldDrawer() *ElementDrawer {

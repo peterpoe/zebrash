@@ -5,11 +5,11 @@ import (
 	"strings"
 
 	"github.com/ingridhq/gg"
-	"github.com/ingridhq/zebrash/drawers"
-	"github.com/ingridhq/zebrash/internal/barcodes/datamatrix"
-	"github.com/ingridhq/zebrash/internal/barcodes/datamatrix/encoder"
-	"github.com/ingridhq/zebrash/internal/elements"
-	"github.com/ingridhq/zebrash/internal/images"
+	"github.com/peterpoe/zebrash/drawers"
+	"github.com/peterpoe/zebrash/internal/barcodes/datamatrix"
+	"github.com/peterpoe/zebrash/internal/barcodes/datamatrix/encoder"
+	"github.com/peterpoe/zebrash/internal/elements"
+	"github.com/peterpoe/zebrash/internal/images"
 )
 
 func NewBarcodeDatamatrixDrawer() *ElementDrawer {

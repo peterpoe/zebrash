@@ -6,8 +6,8 @@ import (
 	"image"
 	"math"
 
-	"github.com/ingridhq/zebrash/internal/barcodes/utils"
-	"github.com/ingridhq/zebrash/internal/images"
+	"github.com/peterpoe/zebrash/internal/barcodes/utils"
+	"github.com/peterpoe/zebrash/internal/images"
 )
 
 const (

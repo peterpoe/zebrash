@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ingridhq/zebrash/internal/encodings"
+	"github.com/peterpoe/zebrash/internal/encodings"
 )
 
 type StoredFormat struct {

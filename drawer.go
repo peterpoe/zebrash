@@ -6,10 +6,10 @@ import (
 	"math"
 
 	"github.com/ingridhq/gg"
-	"github.com/ingridhq/zebrash/drawers"
-	"github.com/ingridhq/zebrash/elements"
-	drawers_internal "github.com/ingridhq/zebrash/internal/drawers"
-	"github.com/ingridhq/zebrash/internal/images"
+	"github.com/peterpoe/zebrash/drawers"
+	"github.com/peterpoe/zebrash/elements"
+	drawers_internal "github.com/peterpoe/zebrash/internal/drawers"
+	"github.com/peterpoe/zebrash/internal/images"
 )
 
 type reversePrintable interface {
